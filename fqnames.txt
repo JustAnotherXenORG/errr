@@ -1,0 +1,16 @@
+    android.hardware.sensors@1.0::ISensorManager/default
+    android.hardware.soundtrigger@1.0::ISoundTriggerHw/default
+    com.fingerprints.extension@1.0::IFingerprintAuthenticator/default
+    com.fingerprints.extension@1.0::IFingerprintCalibration/default
+    com.fingerprints.extension@1.0::IFingerprintEngineering/default
+    com.fingerprints.extension@1.0::IFingerprintNavigation/default
+    com.fingerprints.extension@1.0::IFingerprintRecalibration/default
+    com.fingerprints.extension@1.0::IFingerprintSenseTouch/default
+    com.fingerprints.extension@1.0::IFingerprintSensorTest/default
+    vendor.goodix.hardware.fingerprint@1.0::IGoodixBiometricsFingerprint/default
+    vendor.qti.hardware.radio.qcrilhook@1.1::IQtiOemHook/oemhook0
+    vendor.qti.hardware.radio.qcrilhook@1.1::IQtiOemHook/oemhook1
+    vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient0
+    vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient1
+    vendor.qti.hardware.wifi.wifilearner@1.0::IWifiStats/IWifiStats
+    vendor.xiaomi.hardware.mfidoca@1.0::IFidoService/default
