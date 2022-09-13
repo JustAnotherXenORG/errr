@@ -1,20 +1,32 @@
-  android.hardware.audio.effect@7.0::IEffectsFactory/default
-  android.hardware.audio@7.0::IDevicesFactory/default
-  android.hardware.bluetooth.audio@2.1::IBluetoothAudioProvidersFactory/default
+android.hardware.biometrics.fingerprint@2.2::IBiometricsFingerprint/default
+  android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload/default
   android.hardware.camera.provider@2.6::ICameraProvider/legacy/0
-  android.hardware.cas@1.2::IMediaCasService/default                                                                    
-  android.hardware.drm@1.4::ICryptoFactory/clearkey
-  android.hardware.drm@1.4::IDrmFactory/clearkey
-  android.hardware.gnss@2.1::IGnss/default
-  android.hardware.graphics.mapper@4.0::IMapper/default
+  android.hardware.cas@1.2::IMediaCasService/default
+  android.hardware.drm@1.3::ICryptoFactory/clearkey
+  android.hardware.drm@1.3::IDrmFactory/clearkey
   android.hardware.health@2.1::IHealth/default
-  android.hardware.light.ILights/default
-  android.hardware.power.IPower/default
+  android.hardware.power.IPower/default (@1)
   android.hardware.radio@1.5::IRadio/slot1
   android.hardware.radio@1.5::IRadio/slot2
+  android.hardware.sensors@1.0::ISensorManager/default
   android.hardware.wifi.hostapd.IHostapd/default
   android.hardware.wifi.supplicant.ISupplicant/default
   android.hardware.wifi@1.6::IWifi/default
-  com.qualcomm.qti.dpm.api@1.0::IdpmQmi/dpmQmiService
-  com.qualcomm.qti.imscmservice@2.2::IImsCmService/qti.ims.connectionmanagerservice
-  com.qualcomm.qti.uceservice@2.2::IUceService/com.qualcomm.qti.uceservice
+  com.fingerprints.extension@1.0::IFingerprintEngineering/default
+  com.fingerprints.extension@1.0::IFingerprintNavigation/default
+  com.fingerprints.extension@1.0::IFingerprintSensorTest/default
+  com.qualcomm.qti.ant@1.0::IAntHci/default
+  vendor.goodix.hardware.fingerprint@1.0::IGoodixBiometricsFingerprint/default
+  vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient0
+  vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient1
+  vendor.xiaomi.hardware.mfidoca@1.0::IFidoService/default
+  android.hardware.bluetooth.a2dp@1.0::IBluetoothAudioOffload/default
+  android.hardware.sensors@1.0::ISensorManager/default
+  com.fingerprints.extension@1.0::IFingerprintEngineering/default
+  com.fingerprints.extension@1.0::IFingerprintNavigation/default
+  com.fingerprints.extension@1.0::IFingerprintSensorTest/default
+  com.qualcomm.qti.ant@1.0::IAntHci/default
+  vendor.goodix.hardware.fingerprint@1.0::IGoodixBiometricsFingerprint/default
+  vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient0
+  vendor.qti.hardware.radio.uim_remote_client@1.2::IUimRemoteServiceClient/uimRemoteClient1
+  vendor.xiaomi.hardware.mfidoca@1.0::IFidoService/default
