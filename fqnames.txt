@@ -1,27 +1,4 @@
-    com.fingerprints.extension@2.0::IFingerprintEngineering/default
-    com.fingerprints.extension@2.0::IFingerprintNavigation/default
-    com.fingerprints.extension@2.0::IFingerprintSensorTest/default
-    com.qualcomm.qti.ant@1.0::IAntHci/default
-    vendor.goodix.hardware.interfaces.biometrics.fingerprint@2.1::IGoodixFingerprintDaemon/default
-  android.hardware.atrace@1.0::IAtraceDevice/default
-  android.hardware.audio.effect@7.0::IEffectsFactory/default
-  android.hardware.audio@7.0::IDevicesFactory/default
-  android.hardware.bluetooth.audio.IBluetoothAudioProviderFactory/default
-  android.hardware.cas@1.2::IMediaCasService/default
-  android.hardware.drm@1.2::ICryptoFactory/widevine
-  android.hardware.drm@1.2::IDrmFactory/widevine
-  android.hardware.drm@1.4::ICryptoFactory/clearkey
-  android.hardware.drm@1.4::IDrmFactory/clearkey
-  android.hardware.health@2.1::IHealth/default
-  android.hardware.light.ILights/default (@1)
-  android.hardware.power.IPower/default (@1)
-  android.hardware.power.stats@1.0::IPowerStats/default
-  android.hardware.vibrator.IVibrator/default (@1)
-  android.hardware.wifi.hostapd.IHostapd/default (@1)
-  android.hardware.wifi.supplicant.ISupplicant/default (@1)
-  android.hardware.wifi@1.6::IWifi/default
-  com.fingerprints.extension@2.0::IFingerprintEngineering/default
-  com.fingerprints.extension@2.0::IFingerprintNavigation/default
-  com.fingerprints.extension@2.0::IFingerprintSensorTest/default
-  com.qualcomm.qti.ant@1.0::IAntHci/default
-  vendor.goodix.hardware.interfaces.biometrics.fingerprint@2.1::IGoodixFingerprintDaemon/default
+android.hardware.media.c2@1.0::IComponentStore/software                                                                                                                        
+vendor.aospa.power.IPowerFeature/default (@1)                                                                                                                                    
+vendor.qti.hardware.wifi.wificfr@1.0::IWificfr/wificfr                                                                                                                         
+vendor.qti.hardware.wifi.wifimyftm@1.0::IWifiMyFtm/default
