@@ -1,4 +1,28 @@
-android.hardware.media.c2@1.0::IComponentStore/software                                                                                                                        
-vendor.aospa.power.IPowerFeature/default (@1)                                                                                                                                    
-vendor.qti.hardware.wifi.wificfr@1.0::IWificfr/wificfr                                                                                                                         
-vendor.qti.hardware.wifi.wifimyftm@1.0::IWifiMyFtm/default
+android.hardware.audio.effect@7.0::IEffectsFactory/default
+android.hardware.audio@7.0::IDevicesFactory/default
+android.hardware.bluetooth.audio@2.0::IBluetoothAudioProvidersFactory/default          
+android.hardware.bluetooth@1.0::IBluetoothHci/default
+android.hardware.camera.provider@2.4::ICameraProvider/legacy/0
+android.hardware.cas.IMediaCasService/default (@1)
+android.hardware.cas@1.2::IMediaCasService/default
+android.hardware.drm@1.3::ICryptoFactory/widevine
+android.hardware.drm@1.3::IDrmFactory/widevine
+android.hardware.gatekeeper@1.0::IGatekeeper/default
+android.hardware.health.IHealth/default 
+android.hardware.ir@1.0::IConsumerIr/default
+android.hardware.keymaster@4.1::IKeymasterDevice/default
+android.hardware.light@2.0::ILight/default
+android.hardware.media.omx@1.0::IOmx/default
+android.hardware.media.omx@1.0::IOmxStore/default
+android.hardware.memtrack@1.0::IMemtrack/default
+android.hardware.power.IPower/default
+android.hardware.radio@1.5::IRadio/slot1
+android.hardware.radio@1.5::IRadio/slot2
+android.hardware.sensors@2.0::ISensors/default  
+android.hardware.tetheroffload.control@1.0::IOffloadControl/default         
+android.hardware.usb@1.0::IUsb/default
+android.hardware.vibrator.IVibrator/default
+android.hardware.wifi.IWifi/default (@1)
+android.hardware.wifi.hostapd.IHostapd/default
+android.hardware.wifi.supplicant.ISupplicant/default
+vendor.qti.hardware.perf@2.2::IPerf/default
