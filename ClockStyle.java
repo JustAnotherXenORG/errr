@@ -7,10 +7,13 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
-import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import com.android.settings.R;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ClockStyle extends RelativeLayout {
 
@@ -19,7 +22,7 @@ public class ClockStyle extends RelativeLayout {
     private static final Uri CLOCK_STYLE_URI = Settings.System.getUriFor(CLOCK_STYLE_KEY);
 
     private Context mContext;
-    private SparseArray<View> clockViews;
+    private List<View> clockViews;
     private ContentResolver mContentResolver;
 
     public ClockStyle(Context context, AttributeSet attrs) {
@@ -31,24 +34,27 @@ public class ClockStyle extends RelativeLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        findClockViews(this);
+        clockViews = findClockViews(this);
         new MyContentObserver(new Handler()).observe();
         updateClockView();
     }
 
-    private void findClockViews(View view) {
+    private List<View> findClockViews(View view) {
+        List<View> clockViews = new ArrayList<>();
         if (view instanceof ViewGroup) {
             ViewGroup viewGroup = (ViewGroup) view;
             int childCount = viewGroup.getChildCount();
             for (int i = 0; i < childCount; i++) {
                 View child = viewGroup.getChildAt(i);
                 if (isClockView(child)) {
-                    clockViews.put(clockViews.size(), child);
-                } else if (child instanceof ViewGroup) {
-                    findClockViews(child);
+                    clockViews.add(child);
+                }
+                if (child instanceof ViewGroup) {
+                    clockViews.addAll(findClockViews(child));
                 }
             }
         }
+        return clockViews;
     }
 
     private boolean isClockView(View view) {
@@ -63,14 +69,9 @@ public class ClockStyle extends RelativeLayout {
     }
 
     private void updateClockView() {
-        if (clockViews != null) {
-            int clockStyle = Settings.System.getInt(mContentResolver, CLOCK_STYLE_KEY, DEFAULT_STYLE);
-            for (int i = 0; i < clockViews.size(); i++) {
-                View clockView = clockViews.valueAt(i);
-                if (clockView != null) {
-                    clockView.setVisibility(i == clockStyle ? View.VISIBLE : View.GONE);
-                }
-            }
+        int clockStyle = Settings.System.getInt(mContentResolver, CLOCK_STYLE_KEY, DEFAULT_STYLE);
+        for (View clockView : clockViews) {
+            clockView.setVisibility(clockViews.indexOf(clockView) == clockStyle ? View.VISIBLE : View.GONE);
         }
     }
 
