@@ -31,20 +31,35 @@ public class ClockStyle extends RelativeLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        findClockViews();
+        findClockViews(this);
         new MyContentObserver(new Handler()).observe();
         updateClockView();
     }
 
-    private void findClockViews() {
-        clockViews = new SparseArray<>();
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View child = getChildAt(i);
-            if (child.getTag() != null && child.getTag().equals("clock_view")) {
-                clockViews.put(clockViews.size(), child);
+    private void findClockViews(View view) {
+        if (view instanceof ViewGroup) {
+            ViewGroup viewGroup = (ViewGroup) view;
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View child = viewGroup.getChildAt(i);
+                if (isClockView(child)) {
+                    clockViews.put(clockViews.size(), child);
+                } else if (child instanceof ViewGroup) {
+                    findClockViews(child);
+                }
             }
         }
+    }
+
+    private boolean isClockView(View view) {
+        // Add your condition here to identify clock views
+        // For example, you can check if the view's ID matches a clock view ID
+        // Or check if the view has specific characteristics that only clock views have
+        // Replace the return statement below with your own logic
+        return view.getId() == R.id.keyguard_clock_style_default ||
+                view.getId() == R.id.keyguard_clock_style_oos ||
+                // Add other clock view IDs as needed
+                false;
     }
 
     private void updateClockView() {
