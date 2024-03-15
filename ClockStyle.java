@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.provider.Settings;
 import android.util.AttributeSet;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.android.settings.R;
@@ -38,25 +39,25 @@ public class ClockStyle extends RelativeLayout {
 
     private static final int DEFAULT_STYLE = 0; //Disabled
     private static final String CLOCK_STYLE_KEY = "clock_style";
+    private static final Uri CLOCK_STYLE_URI = Settings.System.getUriFor(CLOCK_STYLE_KEY);
 
-	private Context mContext;
-	private View[] clockViews;
-	
-	public ClockStyle(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		mContext = context;
-	}
+    private Context mContext;
+    private SparseArray<View> clockViews;
+    private ContentResolver mContentResolver;
 
-	@Override
+    public ClockStyle(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mContext = context;
+        mContentResolver = mContext.getContentResolver();
+    }
+
+    @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        clockViews = new View[CLOCK_VIEW_IDS.length];
+        clockViews = new SparseArray<>(CLOCK_VIEW_IDS.length);
         for (int i = 0; i < CLOCK_VIEW_IDS.length; i++) {
-            if (CLOCK_VIEW_IDS[i] != 0) {
-                clockViews[i] = findViewById(CLOCK_VIEW_IDS[i]);
-            } else {
-                clockViews[i] = null;
-            }
+            View clockView = findViewById(CLOCK_VIEW_IDS[i]);
+            clockViews.put(i, clockView);
         }
         new MyContentObserver(new Handler()).observe();
         updateClockView();
@@ -64,28 +65,28 @@ public class ClockStyle extends RelativeLayout {
 
     private void updateClockView() {
         if (clockViews != null) {
-            int clockStyle = Settings.System.getInt(mContext.getContentResolver(), CLOCK_STYLE_KEY, DEFAULT_STYLE);
-            for (int i = 0; i < clockViews.length; i++) {
-                if (clockViews[i] != null) {
-                    clockViews[i].setVisibility(i == clockStyle ? View.VISIBLE : View.GONE);
+            int clockStyle = Settings.System.getInt(mContentResolver, CLOCK_STYLE_KEY, DEFAULT_STYLE);
+            for (int i = 0; i < clockViews.size(); i++) {
+                View clockView = clockViews.valueAt(i);
+                if (clockView != null) {
+                    clockView.setVisibility(i == clockStyle ? View.VISIBLE : View.GONE);
                 }
             }
         }
     }
-	
-	class MyContentObserver extends ContentObserver {
-		public MyContentObserver(Handler h) {
-			super(h);
-		}
-		
-		public void observe() {
-			ContentResolver cr = mContext.getContentResolver();
-			cr.registerContentObserver(Settings.System.getUriFor("clock_style"), false, this);
-		}
-		
-		@Override
-		public void onChange(boolean selfChange) {
-			updateClockView();
-		}
+
+    class MyContentObserver extends ContentObserver {
+        public MyContentObserver(Handler h) {
+            super(h);
+        }
+
+        public void observe() {
+            mContentResolver.registerContentObserver(CLOCK_STYLE_URI, false, this);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateClockView();
+        }
     }
 }
