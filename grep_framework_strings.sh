@@ -24,8 +24,8 @@ grep_framework_strings() {
   # Regex to match framework overlay strings
   framework_regex="framework\/(.+)"
 
-  # Use grep to find lines matching the regex in resources.arsc
-  grep -E "$framework_regex" resources.arsc | cut -d ':' -f2 | cut -d '=' -f2- | tr -d '\n'
+  # Use egrep to find lines matching the regex in resources.arsc
+  egrep "$framework_regex" resources.arsc | cut -d ':' -f2 | cut -d '=' -f2- | tr -d '\n'
 
   # Remove temporary resources.arsc
   rm resources.arsc
