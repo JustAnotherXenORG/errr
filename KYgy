@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--Open VIP can improve the speed of decompilation, resource code translate to name automatically and activate the smart editing and automatic completion function-->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    android:versionCode="1"
-    android:versionName="1.0"
-    android:compileSdkVersion="33"
-    android:compileSdkVersionCodename="13"
-    package="com.google.android.GoogleCamera.theme"
-    platformBuildVersionCode="33"
-    platformBuildVersionName="13">
+    android:versionCode="35"
+    android:versionName="15"
+    android:compileSdkVersion="35"
+    android:compileSdkVersionCodename="15"
+    package="com.android.systemui.jairajcm4G"
+    platformBuildVersionCode="35"
+    platformBuildVersionName="15">
     <uses-sdk
-        android:minSdkVersion="30"
-        android:targetSdkVersion="30" />
+        android:minSdkVersion="35"
+        android:targetSdkVersion="35" />
     <application
-        android:extractNativeLibs="false"
-        android:usesNonSdkApi="true" />
+        android:hasCode="false"
+        android:extractNativeLibs="true" />
     <overlay
         android:priority="1000"
-        android:targetPackage="com.google.android.GoogleCamera"
+        android:targetPackage="com.android.systemui"
         android:isStatic="true" />
 </manifest>
